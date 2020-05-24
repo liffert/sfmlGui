@@ -1,25 +1,5 @@
 #include "TextView.h"
 
-std::vector<std::string> gui::TextView::getStr(std::string text) const {
-	std::vector <std::string> temp;
-	std::string buf;
-	for (int i = 0; i < text.length(); i++) {
-		if ((buf.length() + 1) * TextSettings.textSize / 2 > Size.width + 1) {
-			temp.push_back(buf);
-			buf.clear();
-		}
-		if (buf.empty() && text.at(i) == ' ') { continue; }
-		if (text.at(i) == '\n') { 
-			temp.push_back(buf); 
-			buf.clear();
-			continue;
-		}
-		buf.push_back(text.at(i));
-	}
-	if (!buf.empty()) { temp.push_back(buf); }
-	return temp;
-}
-
 int gui::TextView::biggestStr(std::vector<std::string> arr) const {
 	int len = 0;
 	for (const auto& iter : arr) {
@@ -46,7 +26,6 @@ void gui::TextView::draw(sf::RenderTarget& target, sf::RenderStates states) cons
 	shape.setOutlineColor(BorderColor);
 	shape.setOutlineThickness(1);
 	shape.setPosition(Position.x, Position.y);
-	auto TEXTARR = getStr(this->text);
 	sf::Text text;
 	sf::Font font;
 	text.setString(this->text);

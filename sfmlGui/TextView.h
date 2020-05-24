@@ -5,7 +5,6 @@
 namespace gui {
 	class TextView : public gui::ViewElement {
 	private:
-		std::vector<std::string> getStr(std::string text)const;
 		int biggestStr(std::vector<std::string> arr) const;
 		bool label = false;
 	public:

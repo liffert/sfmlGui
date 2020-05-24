@@ -1,5 +1,25 @@
 #include "ViewElement.h"
 
+std::vector<std::string> gui::ViewElement::getStr(std::string text) const {
+	std::vector <std::string> temp;
+	std::string buf;
+	for (int i = 0; i < text.length(); i++) {
+		if ((buf.length() + 1) * TextSettings.textSize / 2 > Size.width + 1) {
+			temp.push_back(buf);
+			buf.clear();
+		}
+		if (buf.empty() && text.at(i) == ' ') { continue; }
+		if (text.at(i) == '\n') {
+			temp.push_back(buf + '\n');
+			buf.clear();
+			continue;
+		}
+		buf.push_back(text.at(i));
+	}
+	if (!buf.empty()) { temp.push_back(buf); }
+	return temp;
+}
+
 gui::ViewElement::ViewElement(std::string id, int width, int height) : id(id) {
 	Size.width = width;
 	Size.height = height;

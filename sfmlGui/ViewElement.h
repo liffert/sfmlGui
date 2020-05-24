@@ -5,6 +5,7 @@
 namespace gui {
 	class ViewElement : public sf::Drawable{
 	protected:
+		std::vector<std::string> getStr(std::string text) const;
 		const std::string id;
 		std::string text;
 		struct size {

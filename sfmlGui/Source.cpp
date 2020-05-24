@@ -25,7 +25,7 @@ int main() {
 	app.addButton("but3", "LT", 50, 50, 400, 100);
 	app.button("but3").setFunction([]() {app.textView("text1").setText("Yes you can."); });
 
-	app.addTextInput("in1", 100, 50, 40, 200);
+	app.addTextInput("in1", 100, 100, 40, 200);
 
 	app.addTextView("text1", 100, 300, 200, 200, "Hello world guys. How are you. Fine?\n It`s good. Really good. Can I ask us?");
 	app.start();

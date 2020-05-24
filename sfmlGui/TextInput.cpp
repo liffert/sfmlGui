@@ -20,11 +20,23 @@ void gui::TextInput::draw(sf::RenderTarget& target, sf::RenderStates states) con
 	text.setFont(font);
 	text.setCharacterSize(TextSettings.textSize);
 	text.setPosition(TextSettings.x, TextSettings.y);
+	
+	auto TEXTARR = getStr(this->text);
+	std::string textOut;
+	for (auto iter = TEXTARR.begin(); iter != TEXTARR.end(); iter++) {
+		if (iter->back() == '\n' && iter != TEXTARR.end() - 1) {
+			textOut = textOut + *iter;
+		}
+		else {
+			textOut = textOut + *iter + "\n";
+		}
+	}
+	if (!textOut.empty()) { textOut.pop_back(); }
 	if (active) {
-		text.setString(this->text + "|");
+		text.setString(textOut + "|");
 	}
 	else {
-		text.setString(this->text);
+		text.setString(textOut);
 	}
 	target.draw(shape, states);
 	target.draw(text, states);
