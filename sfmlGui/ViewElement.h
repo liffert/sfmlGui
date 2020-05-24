@@ -32,6 +32,8 @@ namespace gui {
 		ViewElement(std::string id, int width, int height);
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 		virtual void setText(std::string text);
+		std::string getText() const;
+		virtual bool onClick(int x, int y);
 		void setSize(int width, int height);
 		void setPosition(int x, int y);
 		void setColor(int color);

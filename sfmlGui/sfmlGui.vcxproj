@@ -144,6 +144,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Gui.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="TextInput.cpp" />
     <ClCompile Include="TextView.cpp" />
     <ClCompile Include="ViewElement.cpp" />
   </ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="Gui.h" />
     <ClInclude Include="guinamespace.h" />
+    <ClInclude Include="TextInput.h" />
     <ClInclude Include="TextView.h" />
     <ClInclude Include="ViewElement.h" />
   </ItemGroup>

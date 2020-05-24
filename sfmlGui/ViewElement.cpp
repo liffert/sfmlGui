@@ -29,6 +29,15 @@ void gui::ViewElement::setText(std::string text) {
 	this->text = text;
 }
 
+std::string gui::ViewElement::getText() const {
+	return text;
+}
+
+bool gui::ViewElement::onClick(int x, int y) {
+	if (x >= Position.x && x <= Position.x + Size.width && y >= Position.y && y <= Position.y + Size.height) { return true; }
+	return false;
+}
+
 void gui::ViewElement::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 	sf::RectangleShape shape;
 	shape.setSize(sf::Vector2f(Size.width, Size.height));
